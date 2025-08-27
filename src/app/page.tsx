@@ -253,7 +253,11 @@ export default function Home() {
     if (sort === 'display_name') {
       filtered.sort((a, b) => a.display_name.localeCompare(b.display_name));
     } else {
-      filtered.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+      filtered.sort((a, b) => {
+        const dateA = a.created_at ? new Date(a.created_at).getTime() : 0;
+        const dateB = b.created_at ? new Date(b.created_at).getTime() : 0;
+        return dateB - dateA;
+      });
     }
 
     setFilteredProfiles(filtered);
