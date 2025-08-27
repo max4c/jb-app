@@ -179,7 +179,7 @@ export default function Home() {
   const [filterType, setFilterType] = useState<'all' | 'open_to' | 'can_provide'>('all');
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [filteredProfiles, setFilteredProfiles] = useState<Profile[]>([]);
-  const [skills, setSkills] = useState<Skill[]>([]);
+  const [, setSkills] = useState<Skill[]>([]);
   const [showForm, setShowForm] = useState(false);
   const [editingProfile, setEditingProfile] = useState<Profile | null>(null);
   const [selectedProfile, setSelectedProfile] = useState<Profile | null>(null);
@@ -326,21 +326,21 @@ export default function Home() {
   ];
 
 
-  const handleDeleteProfile = async (userId: string) => {
-    // Only allow deleting if it's the current user's profile
-    if (currentUser && userId !== currentUser.id) {
-      alert("You can only delete your own profile");
-      return;
-    }
+  // const handleDeleteProfile = async (userId: string) => {
+  //   // Only allow deleting if it's the current user's profile
+  //   if (currentUser && userId !== currentUser.id) {
+  //     alert("You can only delete your own profile");
+  //     return;
+  //   }
 
-    try {
-      await deleteProfile(userId);
-      loadData(); // Refresh data
-    } catch (error) {
-      console.error('Error deleting profile:', error);
-      alert('Failed to delete profile');
-    }
-  };
+  //   try {
+  //     await deleteProfile(userId);
+  //     loadData(); // Refresh data
+  //   } catch (error) {
+  //     console.error('Error deleting profile:', error);
+  //     alert('Failed to delete profile');
+  //   }
+  // };
 
   const handleSubmitForm = async (e: React.FormEvent) => {
     e.preventDefault();
