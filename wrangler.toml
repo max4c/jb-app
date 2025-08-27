@@ -1,0 +1,13 @@
+name = "jb-app"
+compatibility_date = "2025-08-27"
+compatibility_flags = ["nodejs_compat"]
+
+[[assets]]
+directory = ".open-next/static"
+exclude = ["**/*.map"]
+
+[build]
+command = "npx open-next@latest build"
+
+[vars]
+NODE_ENV = "production"
